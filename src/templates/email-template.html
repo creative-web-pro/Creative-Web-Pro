@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>New Contact Form Submission</title>
+    <style type="text/css">
+        /* Reset styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0; }
+        table, td { border-spacing: 0; border-collapse: collapse; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        
+        /* Base styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #333333;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0;
+        }
+        
+        /* Layout components */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background-color: #3b82f6;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            color: rgba(255,255,255,0.9);
+            margin: 8px 0 0;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 30px 20px;
+            background-color: #ffffff;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            color: #3b82f6;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .info-item {
+            margin: 5px 0;
+        }
+        
+        .reply-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #ffffff !important; /* Force white color for Outlook */
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            background-color: #ffffff;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            .header, .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Email container -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="600" style="margin: auto;" class="email-container">
+        <!-- Header -->
+        <tr>
+            <td class="header">
+                <h1>New Contact Form Submission</h1>
+                <p>Received on {{date}} at {{time}}</p>
+            </td>
+        </tr>
+        
+        <!-- Content -->
+        <tr>
+            <td class="content">
+                <!-- Contact Details -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="section">
+                    <tr>
+                        <td>
+                            <h2 class="section-title">Contact Details</h2>
+                            <div class="info-box">
+                                <p class="info-item"><strong>Name:</strong> {{name}}</p>
+                                <p class="info-item"><strong>Email:</strong> <a href="mailto:{{email}}" style="color: #3b82f6; text-decoration: none;">{{email}}</a></p>
+                                <p class="info-item"><strong>Phone:</strong> {{phone}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Message -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="section">
+                    <tr>
+                        <td>
+                            <h2 class="section-title">Message</h2>
+                            <div class="info-box">
+                                <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">{{message}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Reply Button -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td align="center">
+                            <a href="mailto:{{email}}" class="reply-btn">Reply to {{name}}</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+            <td class="footer">
+                <p>This email was sent from your website's contact form.</p>
+                <p>© {{year}} {{companyName}}. All rights reserved.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
